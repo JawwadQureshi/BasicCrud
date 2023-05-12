@@ -41,6 +41,8 @@ namespace MyStore.Pages.Clients
                                 clientInfo.phone = reader.GetString(3);
                                 clientInfo.address = reader.GetString(4);
                                 clientInfo.created_at = reader.GetDateTime(5).ToString();
+
+                                listOfClients.Add(clientInfo);
                             }
                         }
                     }
