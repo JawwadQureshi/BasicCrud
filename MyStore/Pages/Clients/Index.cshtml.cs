@@ -40,6 +40,7 @@ namespace MyStore.Pages.Clients
                                 clientInfo.email = reader.GetString(2);
                                 clientInfo.phone = reader.GetString(3);
                                 clientInfo.address = reader.GetString(4);
+                                clientInfo.created_at = reader.GetDateTime(5).ToString();
                             }
                         }
                     }
@@ -57,5 +58,6 @@ namespace MyStore.Pages.Clients
         public string email;
         public string phone;
         public string address;
+        public string created_at;
     }
 }
