@@ -23,7 +23,7 @@ namespace MyStore.Pages.Clients
                     String sql = "SELECT * FROM clients";
 
                     //Executes SQL Query
-                    using (SqlCommand command = connection.CreateCommand())
+                    using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         //Obtain SQL Data Reader
                         using (SqlDataReader reader = command.ExecuteReader())
