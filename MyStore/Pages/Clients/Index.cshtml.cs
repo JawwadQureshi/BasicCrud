@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
+using System.Xml;
 
 namespace MyStore.Pages.Clients
 {
@@ -16,7 +17,23 @@ namespace MyStore.Pages.Clients
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-
+                    String sql = "SELECT * FROM clients";
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ClientInfo clientInfo = new ClientInfo();
+                                clientInfo.id = "" + reader.GetInt32(0);
+                                clientInfo.name = reader.GetString(1);
+                                clientInfo.email = reader.GetString(2);
+                                clientInfo.phone = reader.GetString(3);
+                                clientInfo.address = reader.GetString(4);
+                                clientInfo.created_at = reader.GetDateTime(5).ToString();
+                            }
+                        }
+                    }
                 }
             }
             catch(Exception ex) { }
