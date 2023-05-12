@@ -48,7 +48,10 @@ namespace MyStore.Pages.Clients
                     }
                 }
             }
-            catch(Exception ex) { }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
         }
     }
