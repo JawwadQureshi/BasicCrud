@@ -16,6 +16,7 @@ namespace MyStore.Pages.Clients
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+
                 }
             }
             catch(Exception ex) { }
